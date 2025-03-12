@@ -1,13 +1,15 @@
 package com.technica_studio.product_service.service;
 
-import com.technica_studio.product_service.model.Product;
+import com.technica_studio.product_service.dto.ProductDTOList;
+import com.technica_studio.product_service.entity.ProductEntityList;
 
 public interface ProductService {
-    Product getProduct();
+    ProductDTOList getProduct(String name, String code, String description);
 
-    Product insertProduct();
+    ProductDTOList insertProduct(ProductDTOList productEntityList);
 
-    Product updateProduct();
+    ProductDTOList updateProduct(ProductDTOList requestBody);
 
-    Product removeProduct();
+    ProductDTOList removeProduct(ProductDTOList requestBody);
+
 }
