@@ -1,4 +1,4 @@
-package com.technica_studio.product_service.entity;
+package com.technicastudio.productservice.entity;
 
 import lombok.Builder;
 import lombok.Data;

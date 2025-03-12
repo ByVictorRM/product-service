@@ -1,4 +1,4 @@
-package com.technica_studio.product_service.dto;
+package com.technicastudio.productservice.dto;
 
 import lombok.Getter;
 

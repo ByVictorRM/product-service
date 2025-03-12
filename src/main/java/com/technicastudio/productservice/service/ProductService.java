@@ -1,7 +1,6 @@
-package com.technica_studio.product_service.service;
+package com.technicastudio.productservice.service;
 
-import com.technica_studio.product_service.dto.ProductDTOList;
-import com.technica_studio.product_service.entity.ProductEntityList;
+import com.technicastudio.productservice.dto.ProductDTOList;
 
 public interface ProductService {
     ProductDTOList getProduct(String name, String code, String description);

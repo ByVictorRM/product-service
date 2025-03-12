@@ -1,10 +1,10 @@
-package com.technica_studio.product_service.service;
+package com.technicastudio.productservice.service;
 
-import com.technica_studio.product_service.dto.BooleanStr;
-import com.technica_studio.product_service.dto.ProductDTO;
-import com.technica_studio.product_service.dto.ProductDTOList;
-import com.technica_studio.product_service.entity.ProductEntity;
-import com.technica_studio.product_service.repository.ProductListRepository;
+import com.technicastudio.productservice.dto.BooleanStr;
+import com.technicastudio.productservice.dto.ProductDTO;
+import com.technicastudio.productservice.dto.ProductDTOList;
+import com.technicastudio.productservice.entity.ProductEntity;
+import com.technicastudio.productservice.repository.ProductListRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

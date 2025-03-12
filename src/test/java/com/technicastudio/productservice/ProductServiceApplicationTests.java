@@ -1,4 +1,4 @@
-package com.technica_studio.product_service;
+package com.technicastudio.productservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

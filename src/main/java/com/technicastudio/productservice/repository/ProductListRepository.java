@@ -1,6 +1,6 @@
-package com.technica_studio.product_service.repository;
+package com.technicastudio.productservice.repository;
 
-import com.technica_studio.product_service.entity.ProductEntity;
+import com.technicastudio.productservice.entity.ProductEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 

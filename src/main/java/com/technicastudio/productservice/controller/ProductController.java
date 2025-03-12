@@ -1,7 +1,7 @@
-package com.technica_studio.product_service.controller;
+package com.technicastudio.productservice.controller;
 
-import com.technica_studio.product_service.dto.ProductDTOList;
-import com.technica_studio.product_service.service.ProductService;
+import com.technicastudio.productservice.dto.ProductDTOList;
+import com.technicastudio.productservice.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

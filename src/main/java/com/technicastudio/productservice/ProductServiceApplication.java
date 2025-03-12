@@ -1,4 +1,4 @@
-package com.technica_studio.product_service;
+package com.technicastudio.productservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
