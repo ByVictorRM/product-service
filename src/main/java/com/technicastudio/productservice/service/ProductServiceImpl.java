@@ -33,10 +33,10 @@ public class ProductServiceImpl implements ProductService {
             List<ProductEntity> productEntityList = productListRepository.findByName(name);
             responseBody.setProductList(createProductDTOList(productEntityList));
         } else if (StringUtils.isBlank(name) && !StringUtils.isBlank(code) && StringUtils.isBlank(description)) {
-            List<ProductEntity> productEntityList = productListRepository.findByCode(name);
+            List<ProductEntity> productEntityList = productListRepository.findByCode(code);
             responseBody.setProductList(createProductDTOList(productEntityList));
         } else if (StringUtils.isBlank(name) && StringUtils.isBlank(code) && !StringUtils.isBlank(description)) {
-            List<ProductEntity> productEntityList = productListRepository.findByDescription(name);
+            List<ProductEntity> productEntityList = productListRepository.findByDescription(description);
             responseBody.setProductList(createProductDTOList(productEntityList));
         } else if (!StringUtils.isBlank(name) && !StringUtils.isBlank(code) && !StringUtils.isBlank(description)) {
             List<ProductEntity> productEntityList = productListRepository.findByNameAndCodeAndDescription(name, code, description);
