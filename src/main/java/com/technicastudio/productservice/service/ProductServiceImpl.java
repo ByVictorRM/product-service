@@ -30,16 +30,16 @@ public class ProductServiceImpl implements ProductService {
     public ProductDTOList getProduct(String name, String code, String description) {
         ProductDTOList responseBody = new ProductDTOList();
         if (!StringUtils.isBlank(name) && StringUtils.isBlank(code) && StringUtils.isBlank(description)) {
-            List<ProductEntity> productEntityList = productListRepository.findAllByName(name);
+            List<ProductEntity> productEntityList = productListRepository.findByName(name);
             responseBody.setProductList(createProductDTOList(productEntityList));
         } else if (StringUtils.isBlank(name) && !StringUtils.isBlank(code) && StringUtils.isBlank(description)) {
-            List<ProductEntity> productEntityList = productListRepository.findAllByCode(name);
+            List<ProductEntity> productEntityList = productListRepository.findByCode(name);
             responseBody.setProductList(createProductDTOList(productEntityList));
         } else if (StringUtils.isBlank(name) && StringUtils.isBlank(code) && !StringUtils.isBlank(description)) {
-            List<ProductEntity> productEntityList = productListRepository.findAllByDescription(name);
+            List<ProductEntity> productEntityList = productListRepository.findByDescription(name);
             responseBody.setProductList(createProductDTOList(productEntityList));
         } else if (!StringUtils.isBlank(name) && !StringUtils.isBlank(code) && !StringUtils.isBlank(description)) {
-            List<ProductEntity> productEntityList = productListRepository.findAllByNameAndCodeAndDescription(name, code, description);
+            List<ProductEntity> productEntityList = productListRepository.findByNameAndCodeAndDescription(name, code, description);
             responseBody.setProductList(createProductDTOList(productEntityList));
         } else {
             List<ProductEntity> productEntityList = productListRepository.findAll();
