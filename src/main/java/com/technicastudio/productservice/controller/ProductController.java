@@ -16,29 +16,32 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @GetMapping(value = "/product")
-    public ResponseEntity<ProductDTOList> getSummary(@RequestParam(name = "name", required = false) String name,
+    @GetMapping(value = "/products")
+    public ResponseEntity<ProductDTOList> getProducts(@RequestParam(name = "name", required = false) String name,
                                                      @RequestParam(name = "code", required = false) String code,
                                                      @RequestParam(name = "description", required = false) String description) {
-        logger.info("GET product using id:{}, code:{}, description:{}", name, code, description);
+        logger.info("GET product using name:{}, code:{}, description:{}", name, code, description);
         ProductDTOList productList = productService.getProduct(name, code, description);
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/product")
-    public ResponseEntity<ProductDTOList> insertSummary(@RequestBody ProductDTOList requestBody) {
+    @PostMapping(value = "/products")
+    public ResponseEntity<ProductDTOList> insertProducts(@RequestBody ProductDTOList requestBody) {
+        logger.info("Creating products: {}", requestBody);
         ProductDTOList productList = productService.insertProduct(requestBody);
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
-    @PutMapping(value = "/product")
-    public ResponseEntity<ProductDTOList> updateSummary(@RequestBody ProductDTOList requestBody) {
+    @PutMapping(value = "/products")
+    public ResponseEntity<ProductDTOList> updateProducts(@RequestBody ProductDTOList requestBody) {
+        logger.info("Updating products: {}", requestBody);
         ProductDTOList productList = productService.updateProduct(requestBody);
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/product")
-    public ResponseEntity<ProductDTOList> removeSummary(@RequestBody ProductDTOList requestBody) {
+    @DeleteMapping(value = "/products")
+    public ResponseEntity<ProductDTOList> removeProducts(@RequestBody ProductDTOList requestBody) {
+        logger.info("Deleting products: {}", requestBody);
         ProductDTOList productList = productService.removeProduct(requestBody);
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
