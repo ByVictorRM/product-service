@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     @Autowired
     ProductListRepository productListRepository;
@@ -56,7 +56,9 @@ public class ProductServiceImpl implements ProductService {
         try {
             productEntityList = productListRepository.insert(createProductEntityList(requestBody.getProductList()));
         } catch (DuplicateKeyException e) {
-            responseBody.setErrorMessage("An error occurred while inserting the product.");
+            String msg = "An error occurred while inserting the product";
+            logger.error(msg, e);
+            responseBody.setErrorMessage(msg);
         }
         responseBody.setProductList(createProductDTOList(productEntityList));
         return responseBody;
@@ -76,11 +78,14 @@ public class ProductServiceImpl implements ProductService {
             productEntityList = productListRepository.saveAll(productEntityList);
 
             if (codeList.size() != productEntityList.size()) {
-                logger.warn("The update process was partially successful. Some objects were not updated.");
+                String msg = "The update process was partially successful. Some objects were not updated.";
+                logger.warn(msg);
+                responseBody.setErrorMessage(msg);
             }
         } catch (DuplicateKeyException e) {
-            logger.error("DuplicateKeyException", e);
-            responseBody.setErrorMessage("An error occurred while updating the product.");
+            String msg = "An error occurred while updating the product due to duplicate key";
+            logger.error(msg, e);
+            responseBody.setErrorMessage(msg);
         }
 
         responseBody.setProductList(createProductDTOList(productEntityList));
@@ -170,7 +175,7 @@ public class ProductServiceImpl implements ProductService {
 
         } catch (Exception e) {
             String msg = "An error occurred while deleting the product";
-            logger.error(msg);
+            logger.error(msg, e);
         }
         responseBody.setProductList(createProductDTOList(productEntityList));
         return responseBody;
