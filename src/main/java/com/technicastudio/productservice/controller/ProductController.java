@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
     Logger logger = LoggerFactory.getLogger(ProductController.class);
 
+    private final ProductService productService;
+
     @Autowired
-    ProductService productService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping(value = "/products")
     public ResponseEntity<ProductDTOList> getProducts(@RequestParam(name = "name", required = false) String name,

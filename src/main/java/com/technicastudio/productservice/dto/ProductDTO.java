@@ -8,6 +8,8 @@ import java.math.BigInteger;
 
 @Builder
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductDTO {
     private String name;

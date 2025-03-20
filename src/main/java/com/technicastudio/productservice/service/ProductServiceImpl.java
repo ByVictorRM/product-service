@@ -23,8 +23,12 @@ public class ProductServiceImpl implements ProductService {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
+    private final ProductListRepository productListRepository;
+
     @Autowired
-    ProductListRepository productListRepository;
+    public ProductServiceImpl(ProductListRepository productListRepository) {
+        this.productListRepository = productListRepository;
+    }
 
     @Override
     public ProductDTOList getProduct(String name, String code, String description) {
